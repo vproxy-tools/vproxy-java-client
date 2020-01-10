@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DnsServerCreate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-10T22:59:44.913+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-11T01:36:17.205+08:00")
 public class DnsServerCreate {
   @SerializedName("name")
   private String name = null;
@@ -43,6 +43,9 @@ public class DnsServerCreate {
 
   @SerializedName("eventLoopGroup")
   private String eventLoopGroup = null;
+
+  @SerializedName("securityGroup")
+  private String securityGroup = null;
 
   public DnsServerCreate name(String name) {
     this.name = name;
@@ -134,6 +137,24 @@ public class DnsServerCreate {
     this.eventLoopGroup = eventLoopGroup;
   }
 
+  public DnsServerCreate securityGroup(String securityGroup) {
+    this.securityGroup = securityGroup;
+    return this;
+  }
+
+   /**
+   * security group for the dns server to use
+   * @return securityGroup
+  **/
+  @ApiModelProperty(value = "security group for the dns server to use")
+  public String getSecurityGroup() {
+    return securityGroup;
+  }
+
+  public void setSecurityGroup(String securityGroup) {
+    this.securityGroup = securityGroup;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,12 +169,13 @@ public class DnsServerCreate {
         Objects.equals(this.address, dnsServerCreate.address) &&
         Objects.equals(this.rrsets, dnsServerCreate.rrsets) &&
         Objects.equals(this.ttl, dnsServerCreate.ttl) &&
-        Objects.equals(this.eventLoopGroup, dnsServerCreate.eventLoopGroup);
+        Objects.equals(this.eventLoopGroup, dnsServerCreate.eventLoopGroup) &&
+        Objects.equals(this.securityGroup, dnsServerCreate.securityGroup);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, address, rrsets, ttl, eventLoopGroup);
+    return Objects.hash(name, address, rrsets, ttl, eventLoopGroup, securityGroup);
   }
 
 
@@ -167,6 +189,7 @@ public class DnsServerCreate {
     sb.append("    rrsets: ").append(toIndentedString(rrsets)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    eventLoopGroup: ").append(toIndentedString(eventLoopGroup)).append("\n");
+    sb.append("    securityGroup: ").append(toIndentedString(securityGroup)).append("\n");
     sb.append("}");
     return sb.toString();
   }

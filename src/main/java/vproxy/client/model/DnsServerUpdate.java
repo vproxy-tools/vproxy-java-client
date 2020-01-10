@@ -27,10 +27,13 @@ import java.io.IOException;
 /**
  * DnsServerUpdate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-10T22:59:44.913+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-11T01:36:17.205+08:00")
 public class DnsServerUpdate {
   @SerializedName("ttl")
   private Integer ttl = null;
+
+  @SerializedName("securityGroup")
+  private String securityGroup = null;
 
   public DnsServerUpdate ttl(Integer ttl) {
     this.ttl = ttl;
@@ -50,6 +53,24 @@ public class DnsServerUpdate {
     this.ttl = ttl;
   }
 
+  public DnsServerUpdate securityGroup(String securityGroup) {
+    this.securityGroup = securityGroup;
+    return this;
+  }
+
+   /**
+   * security group for the dns server to use
+   * @return securityGroup
+  **/
+  @ApiModelProperty(value = "security group for the dns server to use")
+  public String getSecurityGroup() {
+    return securityGroup;
+  }
+
+  public void setSecurityGroup(String securityGroup) {
+    this.securityGroup = securityGroup;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +81,13 @@ public class DnsServerUpdate {
       return false;
     }
     DnsServerUpdate dnsServerUpdate = (DnsServerUpdate) o;
-    return Objects.equals(this.ttl, dnsServerUpdate.ttl);
+    return Objects.equals(this.ttl, dnsServerUpdate.ttl) &&
+        Objects.equals(this.securityGroup, dnsServerUpdate.securityGroup);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ttl);
+    return Objects.hash(ttl, securityGroup);
   }
 
 
@@ -75,6 +97,7 @@ public class DnsServerUpdate {
     sb.append("class DnsServerUpdate {\n");
     
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
+    sb.append("    securityGroup: ").append(toIndentedString(securityGroup)).append("\n");
     sb.append("}");
     return sb.toString();
   }

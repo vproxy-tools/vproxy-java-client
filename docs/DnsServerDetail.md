@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **rrsets** | [**UpstreamDetail**](UpstreamDetail.md) |  |  [optional]
 **ttl** | **Integer** | ttl of answer records |  [optional]
 **eventLoopGroup** | [**EventLoopGroupDetail**](EventLoopGroupDetail.md) |  |  [optional]
+**securityGroup** | [**SecurityGroupDetail**](SecurityGroupDetail.md) |  |  [optional]
 
 
 

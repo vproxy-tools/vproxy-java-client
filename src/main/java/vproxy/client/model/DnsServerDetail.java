@@ -24,12 +24,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import vproxy.client.model.EventLoopGroupDetail;
+import vproxy.client.model.SecurityGroupDetail;
 import vproxy.client.model.UpstreamDetail;
 
 /**
  * DnsServerDetail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-10T22:59:44.913+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-11T01:36:17.205+08:00")
 public class DnsServerDetail {
   @SerializedName("name")
   private String name = null;
@@ -45,6 +46,9 @@ public class DnsServerDetail {
 
   @SerializedName("eventLoopGroup")
   private EventLoopGroupDetail eventLoopGroup = null;
+
+  @SerializedName("securityGroup")
+  private SecurityGroupDetail securityGroup = null;
 
   public DnsServerDetail name(String name) {
     this.name = name;
@@ -136,6 +140,24 @@ public class DnsServerDetail {
     this.eventLoopGroup = eventLoopGroup;
   }
 
+  public DnsServerDetail securityGroup(SecurityGroupDetail securityGroup) {
+    this.securityGroup = securityGroup;
+    return this;
+  }
+
+   /**
+   * Get securityGroup
+   * @return securityGroup
+  **/
+  @ApiModelProperty(value = "")
+  public SecurityGroupDetail getSecurityGroup() {
+    return securityGroup;
+  }
+
+  public void setSecurityGroup(SecurityGroupDetail securityGroup) {
+    this.securityGroup = securityGroup;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,12 +172,13 @@ public class DnsServerDetail {
         Objects.equals(this.address, dnsServerDetail.address) &&
         Objects.equals(this.rrsets, dnsServerDetail.rrsets) &&
         Objects.equals(this.ttl, dnsServerDetail.ttl) &&
-        Objects.equals(this.eventLoopGroup, dnsServerDetail.eventLoopGroup);
+        Objects.equals(this.eventLoopGroup, dnsServerDetail.eventLoopGroup) &&
+        Objects.equals(this.securityGroup, dnsServerDetail.securityGroup);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, address, rrsets, ttl, eventLoopGroup);
+    return Objects.hash(name, address, rrsets, ttl, eventLoopGroup, securityGroup);
   }
 
 
@@ -169,6 +192,7 @@ public class DnsServerDetail {
     sb.append("    rrsets: ").append(toIndentedString(rrsets)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    eventLoopGroup: ").append(toIndentedString(eventLoopGroup)).append("\n");
+    sb.append("    securityGroup: ").append(toIndentedString(securityGroup)).append("\n");
     sb.append("}");
     return sb.toString();
   }

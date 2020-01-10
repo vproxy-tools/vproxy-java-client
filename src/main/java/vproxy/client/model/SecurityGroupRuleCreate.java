@@ -29,7 +29,7 @@ import vproxy.client.model.SecurityGroupProtocol;
 /**
  * SecurityGroupRuleCreate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-10T22:59:44.913+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-11T01:36:17.205+08:00")
 public class SecurityGroupRuleCreate {
   @SerializedName("name")
   private String name = null;

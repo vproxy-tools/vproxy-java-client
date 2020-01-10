@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **rrsets** | **String** | answer records |  [optional]
 **ttl** | **Integer** | ttl of answer records |  [optional]
 **eventLoopGroup** | **String** | reference to the running event loop group |  [optional]
+**securityGroup** | **String** | security group for the dns server to use |  [optional]
 
 
 
