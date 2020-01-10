@@ -31,6 +31,7 @@ public class DnsServerApiTest {
     private final DnsServerApi api = new DnsServerApi();
     private String elgName;
     private String upsName;
+    private String secgName;
     private String name;
     private int port;
 
@@ -38,6 +39,7 @@ public class DnsServerApiTest {
     public void setUp() throws Exception {
         elgName = randomName("elg");
         upsName = randomName("ups");
+        secgName = randomName("secg");
         name = randomName("dns");
         port = randomPort();
 
@@ -48,6 +50,11 @@ public class DnsServerApiTest {
         UpstreamCreate ups = new UpstreamCreate();
         ups.setName(upsName);
         new UpstreamApi().addUpstream(ups);
+
+        SecurityGroupCreate secg = new SecurityGroupCreate();
+        secg.setName(secgName);
+        secg.setDefaultRule(Rule.ALLOW);
+        new SecurityGroupApi().addSecurityGroup(secg);
     }
 
     private void addDnsServer() throws ApiException {
@@ -57,6 +64,7 @@ public class DnsServerApiTest {
         req.setEventLoopGroup(elgName);
         req.setRrsets(upsName);
         req.setTtl(1);
+        req.setSecurityGroup(secgName);
         api.addDnsServer(req);
     }
 
@@ -79,6 +87,7 @@ public class DnsServerApiTest {
         assertEquals("127.0.0.1:" + port, dns.getAddress());
         assertEquals(elgName, dns.getEventLoopGroup());
         assertEquals(upsName, dns.getRrsets());
+        assertEquals(secgName, dns.getSecurityGroup());
         assertEquals(1, dns.getTtl().intValue());
     }
 
@@ -99,6 +108,7 @@ public class DnsServerApiTest {
         assertNotNull(dns.getEventLoopGroup().getEventLoopList());
         assertEquals(upsName, dns.getRrsets().getName());
         assertNotNull(dns.getRrsets().getServerGroupList());
+        assertEquals(secgName, dns.getSecurityGroup().getName());
         assertEquals(1, dns.getTtl().intValue());
     }
 
@@ -160,12 +170,20 @@ public class DnsServerApiTest {
     public void updateDnsServerTest() throws ApiException {
         addDnsServer();
 
+        String secgName2 = randomName("secg");
+        SecurityGroupCreate secg = new SecurityGroupCreate();
+        secg.setName(secgName2);
+        secg.setDefaultRule(Rule.ALLOW);
+        new SecurityGroupApi().addSecurityGroup(secg);
+
         DnsServerUpdate update = new DnsServerUpdate();
         update.setTtl(2);
+        update.setSecurityGroup(secgName2);
         api.updateDnsServer(name, update);
 
         DnsServer dns = api.getDnsServer(name);
         assertEquals(2, dns.getTtl().intValue());
+        assertEquals(secgName2, dns.getSecurityGroup());
     }
 
 }
