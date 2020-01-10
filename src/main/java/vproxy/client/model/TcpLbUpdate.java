@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TcpLbUpdate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-10T17:27:20.371+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-10T22:59:44.913+08:00")
 public class TcpLbUpdate {
   @SerializedName("inBufferSize")
   private Integer inBufferSize = null;

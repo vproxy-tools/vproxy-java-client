@@ -23,14 +23,20 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * ServerGroupInUpstreamUpdate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-10T17:27:20.371+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-10T22:59:44.913+08:00")
 public class ServerGroupInUpstreamUpdate {
   @SerializedName("weight")
   private Integer weight = null;
+
+  @SerializedName("annotations")
+  private Map<String, String> annotations = null;
 
   public ServerGroupInUpstreamUpdate weight(Integer weight) {
     this.weight = weight;
@@ -50,6 +56,32 @@ public class ServerGroupInUpstreamUpdate {
     this.weight = weight;
   }
 
+  public ServerGroupInUpstreamUpdate annotations(Map<String, String> annotations) {
+    this.annotations = annotations;
+    return this;
+  }
+
+  public ServerGroupInUpstreamUpdate putAnnotationsItem(String key, String annotationsItem) {
+    if (this.annotations == null) {
+      this.annotations = new HashMap<String, String>();
+    }
+    this.annotations.put(key, annotationsItem);
+    return this;
+  }
+
+   /**
+   * Get annotations
+   * @return annotations
+  **/
+  @ApiModelProperty(value = "")
+  public Map<String, String> getAnnotations() {
+    return annotations;
+  }
+
+  public void setAnnotations(Map<String, String> annotations) {
+    this.annotations = annotations;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +92,13 @@ public class ServerGroupInUpstreamUpdate {
       return false;
     }
     ServerGroupInUpstreamUpdate serverGroupInUpstreamUpdate = (ServerGroupInUpstreamUpdate) o;
-    return Objects.equals(this.weight, serverGroupInUpstreamUpdate.weight);
+    return Objects.equals(this.weight, serverGroupInUpstreamUpdate.weight) &&
+        Objects.equals(this.annotations, serverGroupInUpstreamUpdate.annotations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(weight);
+    return Objects.hash(weight, annotations);
   }
 
 
@@ -75,6 +108,7 @@ public class ServerGroupInUpstreamUpdate {
     sb.append("class ServerGroupInUpstreamUpdate {\n");
     
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
+    sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
     sb.append("}");
     return sb.toString();
   }

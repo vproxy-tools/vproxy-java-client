@@ -30,7 +30,7 @@ import vproxy.client.model.EventLoopDetail;
 /**
  * EventLoopGroupDetail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-10T17:27:20.371+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-10T22:59:44.913+08:00")
 public class EventLoopGroupDetail {
   @SerializedName("name")
   private String name = null;
