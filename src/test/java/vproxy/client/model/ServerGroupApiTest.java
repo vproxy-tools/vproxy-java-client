@@ -66,6 +66,7 @@ public class ServerGroupApiTest {
         ServerGroupInUpstreamCreate req = new ServerGroupInUpstreamCreate();
         req.setName(name);
         req.setWeight(10);
+        req.putAnnotationsItem("xx", "yy");
         api.addServerGroupInUpstream(upsName, req);
     }
 
@@ -114,6 +115,7 @@ public class ServerGroupApiTest {
         assertTrue(sgList.contains(sg));
         assertEquals(name, sg.getName());
         assertEquals(10, sg.getWeight().intValue());
+        assertEquals(Collections.singletonMap("xx", "yy"), sg.getAnnotations());
     }
 
     /**
@@ -151,6 +153,7 @@ public class ServerGroupApiTest {
         ServerGroupInUpstreamDetail sg = api.describeServerGroupInUpstream(upsName, name);
         assertEquals(name, sg.getName());
         assertEquals(10, sg.getWeight().intValue());
+        assertEquals(Collections.singletonMap("xx", "yy"), sg.getAnnotations());
         assertEquals(name, sg.getServerGroup().getName());
         {
             assertEquals(api.describeServerGroup(name), sg.getServerGroup());
@@ -298,10 +301,12 @@ public class ServerGroupApiTest {
 
         ServerGroupInUpstreamUpdate update = new ServerGroupInUpstreamUpdate();
         update.setWeight(17);
+        update.putAnnotationsItem("aa", "bb");
         api.updateServerGroupInUpstream(upsName, name, update);
 
         ServerGroupInUpstream sg = api.getServerGroupInUpstream(upsName, name);
         assertEquals(17, sg.getWeight().intValue());
+        assertEquals(Collections.singletonMap("aa", "bb"), sg.getAnnotations());
     }
 
 }
