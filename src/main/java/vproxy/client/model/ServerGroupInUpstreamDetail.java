@@ -31,7 +31,7 @@ import vproxy.client.model.ServerGroupDetail;
 /**
  * ServerGroupInUpstreamDetail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-11T01:36:17.205+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T11:14:02.626+08:00")
 public class ServerGroupInUpstreamDetail {
   @SerializedName("name")
   private String name = null;

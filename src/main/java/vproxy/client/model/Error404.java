@@ -25,29 +25,50 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Upstream
+ * Error404
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T11:14:02.626+08:00")
-public class Upstream {
-  @SerializedName("name")
-  private String name = null;
+public class Error404 {
+  @SerializedName("code")
+  private Integer code = null;
 
-  public Upstream name(String name) {
-    this.name = name;
+  @SerializedName("message")
+  private String message = null;
+
+  public Error404 code(Integer code) {
+    this.code = code;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get code
+   * @return code
   **/
   @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
+  public Integer getCode() {
+    return code;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public Error404 message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @ApiModelProperty(value = "")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -59,22 +80,24 @@ public class Upstream {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Upstream upstream = (Upstream) o;
-    return Objects.equals(this.name, upstream.name);
+    Error404 error404 = (Error404) o;
+    return Objects.equals(this.code, error404.code) &&
+        Objects.equals(this.message, error404.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(code, message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Upstream {\n");
+    sb.append("class Error404 {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

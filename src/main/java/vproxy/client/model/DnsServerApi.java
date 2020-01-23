@@ -31,6 +31,10 @@ import vproxy.client.model.DnsServer;
 import vproxy.client.model.DnsServerCreate;
 import vproxy.client.model.DnsServerDetail;
 import vproxy.client.model.DnsServerUpdate;
+import vproxy.client.model.Error400;
+import vproxy.client.model.Error404;
+import vproxy.client.model.Error409;
+import vproxy.client.model.Error500;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

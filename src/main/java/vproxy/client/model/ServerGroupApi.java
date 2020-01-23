@@ -27,6 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import vproxy.client.model.Error400;
+import vproxy.client.model.Error404;
+import vproxy.client.model.Error409;
+import vproxy.client.model.Error500;
 import vproxy.client.model.ServerGroup;
 import vproxy.client.model.ServerGroupCreate;
 import vproxy.client.model.ServerGroupDetail;

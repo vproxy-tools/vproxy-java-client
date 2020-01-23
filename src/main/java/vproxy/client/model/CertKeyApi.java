@@ -30,6 +30,10 @@ import java.io.IOException;
 import vproxy.client.model.CertKey;
 import vproxy.client.model.CertKeyCreate;
 import vproxy.client.model.CertKeyDetail;
+import vproxy.client.model.Error400;
+import vproxy.client.model.Error404;
+import vproxy.client.model.Error409;
+import vproxy.client.model.Error500;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
