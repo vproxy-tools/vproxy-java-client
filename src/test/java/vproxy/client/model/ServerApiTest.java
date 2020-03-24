@@ -34,12 +34,17 @@ public class ServerApiTest {
     @Before
     public void setUp() throws ApiException {
         String elgName = randomName("elg");
+        String elName = randomName("el");
         sgName = randomName("sg");
         name = randomName("svr");
 
         EventLoopGroupCreate elg = new EventLoopGroupCreate();
         elg.setName(elgName);
         new EventLoopGroupApi().addEventLoopGroup(elg);
+
+        EventLoopCreate el = new EventLoopCreate();
+        el.setName(elName);
+        new EventLoopApi().addEventLoop(elgName, el);
 
         ServerGroupCreate sg = new ServerGroupCreate();
         sg.setName(sgName);
@@ -81,6 +86,8 @@ public class ServerApiTest {
         assertEquals(10, svr.getWeight().intValue());
         assertEquals("127.0.0.1", svr.getCurrentIp());
         assertEquals(Server.StatusEnum.DOWN, svr.getStatus());
+        assertEquals(-1, (int) svr.getCost());
+        assertEquals("ConnectException: Connection refused", svr.getDownReason());
     }
 
     /**
@@ -98,6 +105,8 @@ public class ServerApiTest {
         assertEquals(10, svr.getWeight().intValue());
         assertEquals("127.0.0.1", svr.getCurrentIp());
         assertEquals(ServerDetail.StatusEnum.DOWN, svr.getStatus());
+        assertEquals(-1, (int) svr.getCost());
+        assertEquals("ConnectException: Connection refused", svr.getDownReason());
     }
 
     /**
