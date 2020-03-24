@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ServerDetail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T11:14:02.626+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-24T17:24:37.463+08:00")
 public class ServerDetail {
   @SerializedName("name")
   private String name = null;
@@ -90,6 +90,12 @@ public class ServerDetail {
 
   @SerializedName("status")
   private StatusEnum status = null;
+
+  @SerializedName("cost")
+  private Integer cost = null;
+
+  @SerializedName("downReason")
+  private String downReason = null;
 
   public ServerDetail name(String name) {
     this.name = name;
@@ -181,6 +187,42 @@ public class ServerDetail {
     this.status = status;
   }
 
+  public ServerDetail cost(Integer cost) {
+    this.cost = cost;
+    return this;
+  }
+
+   /**
+   * the milliseconds cost for one successful health check
+   * @return cost
+  **/
+  @ApiModelProperty(value = "the milliseconds cost for one successful health check")
+  public Integer getCost() {
+    return cost;
+  }
+
+  public void setCost(Integer cost) {
+    this.cost = cost;
+  }
+
+  public ServerDetail downReason(String downReason) {
+    this.downReason = downReason;
+    return this;
+  }
+
+   /**
+   * reason for the last failed health check
+   * @return downReason
+  **/
+  @ApiModelProperty(value = "reason for the last failed health check")
+  public String getDownReason() {
+    return downReason;
+  }
+
+  public void setDownReason(String downReason) {
+    this.downReason = downReason;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -195,12 +237,14 @@ public class ServerDetail {
         Objects.equals(this.address, serverDetail.address) &&
         Objects.equals(this.weight, serverDetail.weight) &&
         Objects.equals(this.currentIp, serverDetail.currentIp) &&
-        Objects.equals(this.status, serverDetail.status);
+        Objects.equals(this.status, serverDetail.status) &&
+        Objects.equals(this.cost, serverDetail.cost) &&
+        Objects.equals(this.downReason, serverDetail.downReason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, address, weight, currentIp, status);
+    return Objects.hash(name, address, weight, currentIp, status, cost, downReason);
   }
 
 
@@ -214,6 +258,8 @@ public class ServerDetail {
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("    currentIp: ").append(toIndentedString(currentIp)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
+    sb.append("    downReason: ").append(toIndentedString(downReason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import vproxy.client.model.Rule;
 /**
  * SecurityGroup
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-23T11:14:02.626+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-24T17:24:37.463+08:00")
 public class SecurityGroup {
   @SerializedName("name")
   private String name = null;

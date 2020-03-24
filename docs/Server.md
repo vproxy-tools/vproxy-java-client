@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **weight** | **Integer** | weight of the server in the server group |  [optional]
 **currentIp** | **String** | l3addr |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) |  |  [optional]
+**cost** | **Integer** | the milliseconds cost for one successful health check |  [optional]
+**downReason** | **String** | reason for the last failed health check |  [optional]
 
 
 <a name="StatusEnum"></a>
